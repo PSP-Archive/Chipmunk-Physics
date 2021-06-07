@@ -1,0 +1,20 @@
+TARGET = ChipmunkDemo
+OBJS = src/GameApp.o src/GameLauncher.o
+OBJS += src/Chipmunk-4.0.2/src/chipmunk.o src/Chipmunk-4.0.2/src/cpArbiter.o src/Chipmunk-4.0.2/src/cpArray.o src/Chipmunk-4.0.2/src/cpBB.o src/Chipmunk-4.0.2/src/cpBody.o src/Chipmunk-4.0.2/src/cpCollision.o src/Chipmunk-4.0.2/src/cpHashSet.o src/Chipmunk-4.0.2/src/cpJoint.o src/Chipmunk-4.0.2/src/cpPolyShape.o src/Chipmunk-4.0.2/src/cpShape.o src/Chipmunk-4.0.2/src/cpSpace.o src/Chipmunk-4.0.2/src/cpSpaceHash.o src/Chipmunk-4.0.2/src/cpVect.o
+OBJS += src/Chipmunk-4.0.2/Demo/Demo1.o src/Chipmunk-4.0.2/Demo/Demo2.o src/Chipmunk-4.0.2/Demo/Demo3.o src/Chipmunk-4.0.2/Demo/Demo4.o src/Chipmunk-4.0.2/Demo/Demo5.o src/Chipmunk-4.0.2/Demo/Demo6.o src/Chipmunk-4.0.2/Demo/Demo7.o
+
+CFLAGS = -O2 -G0 -Wall 
+CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
+ASFLAGS = $(CXXFLAGS)
+
+INCDIR = ../../JGE/include ../../JGE/include/psp ../../JGE/include/psp/freetype2 ../../JGE/src src/Chipmunk-4.0.2/src
+LIBDIR = ../../JGE/lib/psp
+LDFLAGS =
+LIBS = -ljge100 -lfreetype -ljpeg -lgif -lpng -lz -lm -lmikmod -lpsppower -lpspmpeg -lpspaudiocodec -lpspaudiolib -lpspaudio -lpspgum -lpspgu -lpsprtc -lstdc++ 
+
+EXTRA_TARGETS = EBOOT.PBP
+PSP_EBOOT_TITLE = Chipmunk Physics Demo
+PSP_EBOOT_ICON = icon.png
+
+PSPSDK=$(shell psp-config --pspsdk-path)
+include $(PSPSDK)/lib/build.mak
